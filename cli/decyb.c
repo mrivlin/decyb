@@ -59,7 +59,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <unistd.h>
-#include <endian.h>
+#include <libkern/OSByteOrder.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 
@@ -89,7 +89,7 @@ static unsigned readUint8(const char *buf, int *pos)
 
 static unsigned readUint16(const char *buf, int *pos)
 {
-   unsigned r = be16toh(*((uint16_t*) &buf[*pos]));
+   unsigned r = OSSwapBigToHostInt16(*((uint16_t*) &buf[*pos]));
    *pos += 2;
    return r;
 }
@@ -97,7 +97,7 @@ static unsigned readUint16(const char *buf, int *pos)
 
 static unsigned readUint32(const char *buf, int *pos)
 {
-   unsigned r = be32toh(*((uint32_t*) &buf[*pos]));
+   unsigned r = OSSwapBigToHostInt32(*((uint32_t*) &buf[*pos]));
    *pos += 4;
    return r;
 }
@@ -105,7 +105,7 @@ static unsigned readUint32(const char *buf, int *pos)
 
 static int readInt16(const char *buf, int *pos)
 {
-   int16_t r = be16toh(*((int16_t*) &buf[*pos]));
+   int16_t r = OSSwapBigToHostInt16(*((int16_t*) &buf[*pos]));
    *pos += 2;
    return r;
 }
@@ -113,7 +113,7 @@ static int readInt16(const char *buf, int *pos)
 
 static int readInt32(const char *buf, int *pos)
 {
-   int r = be32toh(*((int32_t*) &buf[*pos]));
+   int r = OSSwapBigToHostInt32(*((int32_t*) &buf[*pos]));
    *pos += 4;
    return r;
 }

@@ -1,6 +1,7 @@
 #!/bin/sh
 
-RACE=ggr2022
+# RACE=ggr2022
+RACE=transpac2025_return
 
 if test ! -e decyb ; then
    gcc -Wall -O2 -o decyb decyb.c
