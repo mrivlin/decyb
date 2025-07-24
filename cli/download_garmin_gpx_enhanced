@@ -1,3 +1,0 @@
-#!/bin/sh
-
-node download_garmin_gpx_enhanced.js $@ 
