@@ -13,7 +13,7 @@ And outputs a single GPX file with each boat as a separate track.
 ## Usage
 
 ```bash
-./json2gpx <positions.json> <racesetup.json> [output.gpx]
+./bin/json2gpx <positions.json> <racesetup.json> [output.gpx]
 ```
 
 ### Arguments
@@ -26,13 +26,13 @@ And outputs a single GPX file with each boat as a separate track.
 
 ```bash
 # Basic conversion
-./json2gpx AllPositions3.json RaceSetup.json race_tracks.gpx
+./bin/json2gpx data/AllPositions3.json data/RaceSetup.json data/race_tracks.gpx
 
 # Use default output filename
-./json2gpx AllPositions3.json RaceSetup.json
+./bin/json2gpx data/AllPositions3.json data/RaceSetup.json
 
 # Convert different race data
-./json2gpx ggr2022_positions.json ggr2022_setup.json ggr2022_tracks.gpx
+./bin/json2gpx data/ggr2022_positions.json data/ggr2022_setup.json data/ggr2022_tracks.gpx
 ```
 
 ## Output Format

@@ -1,3 +1,3 @@
 #!/bin/sh
 
-node json2gpx_with_overlay.js $@ 
+node src/json2gpx_with_overlay.js $@ 

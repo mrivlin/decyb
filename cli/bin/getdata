@@ -3,8 +3,11 @@
 # RACE=ggr2022
 RACE=transpac2025_return
 
-if test ! -e decyb ; then
-   gcc -Wall -O2 -o decyb decyb.c
+# Change to data directory for all operations
+cd data
+
+if test ! -e ../src/decyb ; then
+   gcc -Wall -O2 -o ../src/decyb ../src/decyb.c
 fi
 
 ren()
@@ -32,5 +35,5 @@ else
    ln -s leaderboard leaderboard.json
 fi
 
-./decyb <AllPositions3 >AllPositions3.json
+../src/decyb <AllPositions3 >AllPositions3.json
 

@@ -15,31 +15,31 @@ The overlay system allows you to combine race data with additional GPX tracks fr
 
 ```bash
 # Download from Garmin share URL and create overlay
-./json2gpx_with_overlay AllPositions3.json RaceSetup.json \
+./bin/json2gpx_with_overlay data/AllPositions3.json data/RaceSetup.json \
   --garmin-url "https://share.garmin.com/zimmer" \
-  race_with_garmin.gpx
+  data/race_with_garmin.gpx
 ```
 
 ### 2. Add Local GPX File as Overlay
 
 ```bash
 # Add local GPX file as overlay
-./json2gpx_with_overlay AllPositions3.json RaceSetup.json \
-  --overlay my_track.gpx \
+./bin/json2gpx_with_overlay data/AllPositions3.json data/RaceSetup.json \
+  --overlay data/my_track.gpx \
   --overlay-name "My Sailing Track" \
   --overlay-color "00FF00" \
-  race_with_overlay.gpx
+  data/race_with_overlay.gpx
 ```
 
 ### 3. Combine Multiple Overlays
 
 ```bash
 # Combine race data with multiple overlays
-./json2gpx_with_overlay AllPositions3.json RaceSetup.json \
+./bin/json2gpx_with_overlay data/AllPositions3.json data/RaceSetup.json \
   --garmin-url "https://share.garmin.com/zimmer" \
-  --overlay course.gpx --overlay-name "Race Course" --overlay-color "0000FF" \
-  --overlay weather.gpx --overlay-name "Weather Track" --overlay-color "FFFF00" \
-  complete_race.gpx
+  --overlay data/course.gpx --overlay-name "Race Course" --overlay-color "0000FF" \
+  --overlay data/weather.gpx --overlay-name "Weather Track" --overlay-color "FFFF00" \
+  data/complete_race.gpx
 ```
 
 ## Garmin Integration
@@ -76,13 +76,13 @@ The system automatically:
 
 ```bash
 # Download from a Garmin share URL
-./download_garmin_gpx "https://share.garmin.com/zimmer" my_garmin_track.gpx
+./download_garmin_gpx "https://share.garmin.com/zimmer" data/my_garmin_track.gpx
 
 # Use the downloaded file as overlay
-./json2gpx_with_overlay AllPositions3.json RaceSetup.json \
-  --overlay my_garmin_track.gpx \
+./bin/json2gpx_with_overlay data/AllPositions3.json data/RaceSetup.json \
+  --overlay data/my_garmin_track.gpx \
   --overlay-name "Garmin Track" \
-  race_with_garmin.gpx
+  data/race_with_garmin.gpx
 ```
 
 ## Overlay Management
@@ -91,11 +91,11 @@ The system automatically:
 
 ```bash
 # Create directory for overlay files
-mkdir overlays
+mkdir data
 
 # Download and store overlay files
-./download_garmin_gpx "https://share.garmin.com/zimmer" overlays/garmin_track.gpx
-./download_garmin_gpx "https://share.garmin.com/activity/1234567890" overlays/activity.gpx
+./download_garmin_gpx "https://share.garmin.com/zimmer" data/garmin_track.gpx
+./download_garmin_gpx "https://share.garmin.com/activity/1234567890" data/activity.gpx
 ```
 
 ### Listing Available Overlays

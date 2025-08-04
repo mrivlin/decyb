@@ -50,6 +50,7 @@ function parseArgs() {
     };
     
     // Parse options
+    let outputFileSet = false;
     for (let i = 2; i < args.length; i++) {
         switch (args[i]) {
             case '--overlay':
@@ -81,8 +82,9 @@ function parseArgs() {
                 process.exit(0);
                 break;
             default:
-                if (!args[i].startsWith('--')) {
+                if (!args[i].startsWith('--') && !outputFileSet) {
                     options.outputFile = args[i];
+                    outputFileSet = true;
                 }
                 break;
         }
@@ -93,7 +95,7 @@ function parseArgs() {
 
 // List available overlay files
 function listOverlayFiles() {
-    const overlayDir = './overlays';
+    const overlayDir = './data';
     if (fs.existsSync(overlayDir)) {
         console.log('Available overlay files:');
         const files = fs.readdirSync(overlayDir).filter(f => f.endsWith('.gpx'));
@@ -102,7 +104,7 @@ function listOverlayFiles() {
             console.log(`  ${file} (${(stats.size / 1024).toFixed(1)} KB)`);
         });
     } else {
-        console.log('No overlay directory found. Create ./overlays/ to store overlay files.');
+        console.log('No data directory found. Create ./data/ to store overlay files.');
     }
 }
 
